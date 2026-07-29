@@ -1,0 +1,35 @@
+[workspace]
+resolver = "2"
+members = [
+    "outwiker-core",
+    "outwiker-server",
+    "outwiker-main",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-or-later"
+authors = ["OutWikerNG Contributors"]
+description = "OutWikerNG - client/server application over MessagePack-RPC"
+
+[workspace.dependencies]
+# RPC over MessagePack
+mrpc = { version = "0.1" }
+
+# Async runtime
+tokio = { version = "1.40", features = ["full"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rmp-serde = "1.3"
+
+# Inter-process communication
+interprocess = { version = "2.2", features = ["tokio"] }
+
+# CLI / logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1.0"
+thiserror = "1.0"
